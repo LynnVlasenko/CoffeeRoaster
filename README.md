@@ -30,44 +30,44 @@ CoffeeRoaster is an app where you can buy coffee of good quality from the best r
 ### Authorization
 <p float="left">
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/signin.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/signup.png" width="200" />
 </p>
 
 ### Purchase process
 <p float="left">
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/home.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/product.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/cart.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/order.png" width="200" />  
 </p>
 
 ### Search and Sort
 <p float="left">
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/filterbyname.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/filter.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/sortby.png" width="200" />
 </p>
 
 ### Profile
 <p float="left">
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/profile.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/editprofile.png" width="200" />
 </p>
 
 ### Dark Theme Setting
 <p float="left">
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/HomeDark.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/ProductDetailesDark.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/PlaseOrderDark.png" width="200" />
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="https://raw.githubusercontent.com/LynnVlasenko/Images/main/Settings.png" width="200" />  
 </p>
