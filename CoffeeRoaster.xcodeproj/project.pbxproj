@@ -42,6 +42,7 @@
 		6C50DE2E2A17837E009FA93A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C50DE132A17837E009FA93A /* AppDelegate.swift */; };
 		6C50DE2F2A17837E009FA93A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C50DE142A17837E009FA93A /* SceneDelegate.swift */; };
 		6CA2D4042A18EA4F00A1C8F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CA2D4032A18EA4F00A1C8F4 /* GoogleService-Info.plist */; };
+		6CA2D4062A1A171100A1C8F4 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2D4052A1A171000A1C8F4 /* SettingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		6C50DE132A17837E009FA93A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C50DE142A17837E009FA93A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6CA2D4032A18EA4F00A1C8F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6CA2D4052A1A171000A1C8F4 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				6C50DDF42A17837E009FA93A /* AuthManager.swift */,
 				6C50DDF52A17837E009FA93A /* DatabaseManager.swift */,
 				6C50DDF32A17837E009FA93A /* StorageManager.swift */,
+				6CA2D4052A1A171000A1C8F4 /* SettingManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				6C50DE2B2A17837E009FA93A /* SettingTableViewCell.swift in Sources */,
 				6C50DE292A17837E009FA93A /* PopularDoodsTableViewCell.swift in Sources */,
 				6C50DE162A17837E009FA93A /* User.swift in Sources */,
+				6CA2D4062A1A171100A1C8F4 /* SettingManager.swift in Sources */,
 				6C50DE2E2A17837E009FA93A /* AppDelegate.swift in Sources */,
 				6C50DE282A17837E009FA93A /* HomeTableViewCell.swift in Sources */,
 				6C50DE232A17837E009FA93A /* FavoritesVC.swift in Sources */,

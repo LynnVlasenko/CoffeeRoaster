@@ -46,6 +46,7 @@ class HomeVC: UIViewController {
         configureNavBar()
         applyDelegates()
         fetchAllGoods()
+        SettingManager.shared.checkTheme()
     }
     
     override func viewDidLayoutSubviews() {

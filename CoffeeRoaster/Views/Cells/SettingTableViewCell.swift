@@ -49,15 +49,7 @@ class SettingTableViewCell: UITableViewCell {
 
     @objc private func didChangeSwitch(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "flag")
-        if darkSwitch.isOn {
-            let window = UIApplication.shared.keyWindow
-            window?.overrideUserInterfaceStyle = .dark
-            print("dark")
-        } else {
-            let window = UIApplication.shared.keyWindow
-            window?.overrideUserInterfaceStyle = .light
-            print("white")
-        }
+        SettingManager.shared.checkTheme()
     }
     
     // MARK: - Apply constraints

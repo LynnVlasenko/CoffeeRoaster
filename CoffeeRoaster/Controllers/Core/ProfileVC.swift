@@ -132,6 +132,7 @@ class ProfileVC: UIViewController {
                         UserDefaults.standard.set(nil, forKey: "email")
                         UserDefaults.standard.set(nil, forKey: "name")
                         UserDefaults.standard.set(nil, forKey: "surename")
+                        UserDefaults.standard.set(false, forKey: "flag")
                         
                         //show SignIn View
                         let signInVC = SignInVC()
