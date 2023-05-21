@@ -4,6 +4,53 @@
 //
 //  Created by Алина Власенко on 08.05.2023.
 //
+// Зробити сердечко в GoodDetails - по натисканню елемент додається до БД і в FaviroteVC (як це працює з корзинкою) і зробити перевірку на кнопці сердечка - якщо товар вже в БД в favorites колекції юзера то сердечко залите, якщо ні - то пусте
+
+// по натисканню на кнопку і залите сердечко треба зберегти в БД на пусте сердечко видалити з БД і з таблички
+//приклад з Зброї
+//private func configureNavBar() {
+//    if isItemExists! {
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 22)), style: .plain, target: self, action: #selector(addOrDeleteFavoritesAction))
+//    } else {
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart", withConfiguration: UIImage.SymbolConfiguration(pointSize: 22)), style: .plain, target: self, action: #selector(addOrDeleteFavoritesAction))
+//    }
+//}
+
+//@objc private func addOrDeleteFavoritesAction() {
+//
+//    let itemActualStatus = CoreDataManager.shared.isItemExists(with: item.item)
+//
+//    if itemActualStatus {
+//        print("Item exists. Deleting...")
+//        CoreDataManager.shared.deleteItem(with: item.item)
+//        navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart", withConfiguration: UIImage.SymbolConfiguration(pointSize: 22))
+//    } else {
+//        print("Item does not exist. Saving...")
+//        CoreDataManager.shared.addItem(with: item.item)
+//        navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 22))
+//    }
+//}
+
+//приклад як перевірити, що товар вже в БД
+// checking if the product is already in the basket
+//private func checkIsEqualGoodId() {
+//    guard let currentGoodId = good?.id,
+//          let email = UserDefaults.standard.string(forKey: "email") else { return }
+//    print("It is current id \(currentGoodId)")
+//
+//    DatabaseManager.shared.getBasketGoods(for: email) { goods in
+//        let ids = goods.map { $0.id }
+//        for id in ids {
+//            print(id)
+//            if id == currentGoodId {
+//                self.isEqualGoodId = true
+//                print("In Cicle: \(self.isEqualGoodId)")
+//                return
+//            }
+//        }
+//    }
+//}
+
 
 import UIKit
 
