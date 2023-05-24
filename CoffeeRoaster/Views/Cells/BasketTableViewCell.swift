@@ -12,6 +12,10 @@ protocol UpdateTotalDelegate {
     func updateTotal()
 }
 
+protocol DeleteGoodFromCartDelegate {
+    func deleteGoodFromCart()
+}
+
 class BasketTableViewCell: UITableViewCell {
 
     // cell identifier
@@ -19,6 +23,7 @@ class BasketTableViewCell: UITableViewCell {
     
     // Variable with type of Update Total Delegate
     var delegate: UpdateTotalDelegate?
+    var delegateForDelete: DeleteGoodFromCartDelegate?
     
     //good id
     var goodId: String?
@@ -110,35 +115,37 @@ class BasketTableViewCell: UITableViewCell {
     // MARK: - Actions
     //не працює ця функція, бо не показує алерт - без нього працює видалення, але не оновлення табличку
     @objc private func didTabDeleteGoodButton() {
-        guard let id = self.goodId else {
-            return
-        }
-///////////////////////////////// It don't work for update totalLbl data and delete row in Basket table /////////////////////////////
-        print("The good \(id) is not deleted. This function has a problem with deleting a cell and it doesn't show a notification before deleting, but it can delete an item from the database. I commented on it. You can remove by swiping left")
+//        guard let id = self.goodId else {
+//            return
+//        }
+///////////////////////////////////// It don't work for update totalLbl data and delete row in Basket table /////////////////////////////
+////        print("The good \(id) is not deleted. This function has a problem with deleting a cell and it doesn't show a notification before deleting, but it can delete an item from the database. I commented on it. You can remove by swiping left")
 //        //alert to confirm delete
 //        let sheet = UIAlertController(title: "Delete", message: "Are you sure you'd like to delete this good?", preferredStyle: .actionSheet)
 //        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 //        sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-//            guard let email = UserDefaults.standard.string(forKey: "email"),
-//                  let id = self.goodId else {
-//                print("Befor delete \(String(describing: self.goodId))")
-//                return
-//            }
-//            DatabaseManager.shared.deleteGoodFromBacket(for: id, email: email) { deleted in
-//                guard deleted else {
-//                    return
-//                }
-//                print("doog \(id) was deleted")
-//                DispatchQueue.main.async {
-//                    //self.delegate?.updateTotal() //чомусь не працює - оновлює лише по відкриттю вьюшки - але в БД усе зберігається
-//                    //також треба оновити табличку
-//                    print("I'm here after deleted")
-//                }
-//            }
-//        }))
-//        //let vc = BasketVC()
-//        //BasketVC().present(sheet, animated: true)
-    }
+            guard let email = UserDefaults.standard.string(forKey: "email"),
+                  let id = self.goodId else {
+                print("Befor delete \(String(describing: self.goodId))")
+                return
+            }
+            DatabaseManager.shared.deleteGoodFromBacket(for: id, email: email) { deleted in
+                guard deleted else {
+                    return
+                }
+                print("doog \(id) was deleted")
+                DispatchQueue.main.async {
+                    //self.delegate?.updateTotal() //чомусь не працює - оновлює лише по відкриттю вьюшки - але в БД усе зберігається
+                    //також треба оновити табличку
+                    self.delegateForDelete?.deleteGoodFromCart()
+                    print("I'm here after deleted")
+                }
+            }
+        }
+        //let vc = BasketVC()
+        //BasketVC()
+        //delegate.present(sheet, animated: true)
+    
     
     //stepper
     @objc func valueStepperChanged() {
@@ -165,7 +172,6 @@ class BasketTableViewCell: UITableViewCell {
                 return
             }
                 DispatchQueue.main.async {
-                    strongSelf.getTotal()
                     strongSelf.delegate?.updateTotal()
                 }
         }
@@ -240,18 +246,6 @@ class BasketTableViewCell: UITableViewCell {
                 }
             }
             task.resume()
-        }
-    }
-    
-    private func getTotal() {
-        guard let email = UserDefaults.standard.string(forKey: "email") else {
-            return
-        }
-        print("getTotal - starting...")
-        DatabaseManager.shared.getTotalCost(for: email) { total in
-            let totalCost = total.reduce(0, +)
-            print("totalCost: \(totalCost)")
-            print("Total after work get total function in cell: \(String(describing: totalCost))")
         }
     }
 }

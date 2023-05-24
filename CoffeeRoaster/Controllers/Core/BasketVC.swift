@@ -165,6 +165,7 @@ extension BasketVC: UITableViewDataSource, UITableViewDelegate {
         let model = addedGoods[indexPath.row]
         cell.configure(with: model)
         cell.delegate = self
+        cell.delegateForDelete = self
         return cell
     }
         
@@ -205,6 +206,13 @@ extension BasketVC: UITableViewDataSource, UITableViewDelegate {
 extension BasketVC: UpdateTotalDelegate {
    // updateTotal when changed qty of goods in basket
     func updateTotal() {
+        getTotal()
+    }
+}
+
+extension BasketVC: DeleteGoodFromCartDelegate {
+    func deleteGoodFromCart() {
+        fetchGoodFromBasket()
         getTotal()
     }
 }
