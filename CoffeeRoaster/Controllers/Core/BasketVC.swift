@@ -55,8 +55,6 @@ class BasketVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         addSubview()
-        // delegate for update totalLbt data (it don`t work)
-        getDelegates()
         // table delegates
         applyDelegates()
         // get goods in basket for reload table
@@ -74,10 +72,7 @@ class BasketVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // delegat for update totalLbt data (it don`t work)
-        getDelegates()
         // get goods in basket for reload table when view Will Appear
-        // I do like this because the delegat from GoodDetailsVC doesn't work(I deleted that delegat)
         fetchGoodFromBasket()
         // get total cost for all of products in basket when view Will Appear
         getTotal()
@@ -98,11 +93,6 @@ class BasketVC: UIViewController {
     }
     
     // MARK: - Private
-    // delegat for update totalLbt data (it don`t work)
-    private func getDelegates() {
-        let vc2 = BasketTableViewCell()
-        vc2.delegate = self
-    }
     
     // get goods in basket for reload table
     private func fetchGoodFromBasket() {
@@ -138,13 +128,9 @@ class BasketVC: UIViewController {
             
             DispatchQueue.main.async {
                 self?.setUpTotalData(total: totalCost)
+                print("I'm in Backet getTotal")
             }
         }
-    }
-    
-///////////////////////////////// It don't work for update totalLbl data /////////////////////////////
-    func configure(with total: Float) {
-        totalLbl.text = "Total: \(total) $"
     }
 }
 
@@ -178,6 +164,7 @@ extension BasketVC: UITableViewDataSource, UITableViewDelegate {
             for: indexPath) as? BasketTableViewCell else { return UITableViewCell()}
         let model = addedGoods[indexPath.row]
         cell.configure(with: model)
+        cell.delegate = self
         return cell
     }
         
@@ -208,13 +195,15 @@ extension BasketVC: UITableViewDataSource, UITableViewDelegate {
             
             // delete row
             tableView.deleteRows(at: [indexPath], with: .fade)
+            // reload total
+            self.getTotal()
         }
     }
 }
 
 // MARK: - Extension for UpdateTotalDelegate
 extension BasketVC: UpdateTotalDelegate {
-    ///////////////////////////////// It don't work for update totalLbl data /////////////////////////////
+   // updateTotal when changed qty of goods in basket
     func updateTotal() {
         getTotal()
     }

@@ -8,7 +8,6 @@
 import UIKit
 
 // delegate for Update Total value
-///////////////////////////////// It don't work for update totalLbl data /////////////////////////////
 protocol UpdateTotalDelegate {
     func updateTotal()
 }
@@ -19,7 +18,6 @@ class BasketTableViewCell: UITableViewCell {
     static let identifier = "BasketTableViewCell"
     
     // Variable with type of Update Total Delegate
-    ///////////////////////////////// It don't work for update totalLbl data /////////////////////////////
     var delegate: UpdateTotalDelegate?
     
     //good id
@@ -168,8 +166,6 @@ class BasketTableViewCell: UITableViewCell {
             }
                 DispatchQueue.main.async {
                     strongSelf.getTotal()
-                    
-        ///////////////////////////////// It don't work for update totalLbl data  /////////////////////////////
                     strongSelf.delegate?.updateTotal()
                 }
         }
@@ -255,13 +251,6 @@ class BasketTableViewCell: UITableViewCell {
         DatabaseManager.shared.getTotalCost(for: email) { total in
             let totalCost = total.reduce(0, +)
             print("totalCost: \(totalCost)")
- ///////////////////////////////// It don't work for update totalLbl data  /////////////////////////////
-            DispatchQueue.main.async {
-                let vc = BasketVC()
-                //let vc2 = UIViewController.viewDidLoad(BasketVC())
-                vc.configure(with: totalCost)
-                //vc.reloadInputViews()
-            }
             print("Total after work get total function in cell: \(String(describing: totalCost))")
         }
     }
