@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vc: UIViewController
         if AuthManager.shared.isSignedIn {
             vc = TabBarVC()
-            // for theme
+            // for theme  - checke theme
             SettingManager.shared.checkTheme()
         } else {
             let signInVC = SignInVC()
@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let navVC = UINavigationController(rootViewController: signInVC)
             navVC.navigationBar.prefersLargeTitles = true
             vc = navVC
-            // for theme
+            // for theme - checke theme
             SettingManager.shared.checkTheme()
         }
         window.rootViewController = vc

@@ -49,6 +49,7 @@ class SettingTableViewCell: UITableViewCell {
 
     @objc private func didChangeSwitch(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "flag")
+        //set check theme
         SettingManager.shared.checkTheme()
     }
     

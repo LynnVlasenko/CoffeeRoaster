@@ -46,6 +46,7 @@ class HomeVC: UIViewController {
         configureNavBar()
         applyDelegates()
         fetchAllGoods()
+        //checke theme
         SettingManager.shared.checkTheme()
     }
     

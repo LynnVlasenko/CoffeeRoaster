@@ -24,6 +24,6 @@ final class SettingManager {
             let window = UIApplication.shared.keyWindow
             window?.overrideUserInterfaceStyle = .light
             print("white")
-        }
+        } 
     }
 }

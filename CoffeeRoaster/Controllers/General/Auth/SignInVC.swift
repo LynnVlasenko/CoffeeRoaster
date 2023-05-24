@@ -67,6 +67,7 @@ class SignInVC: UITabBarController {
         view.backgroundColor = .systemBackground
         addSubviews()
         addTargets()
+        //checke theme
         SettingManager.shared.checkTheme()
     }
     
