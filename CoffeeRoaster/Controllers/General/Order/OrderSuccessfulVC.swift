@@ -75,7 +75,7 @@ class OrderSuccessfulVC: UIViewController {
         view.addSubview (imageView)
         view.addSubview(goToHome)
     }
-    
+     
     // MARK: - Action
     @objc private func didTabGoToHomeButton() {
         DispatchQueue.main.async {
