@@ -164,6 +164,7 @@ extension BasketVC: UITableViewDataSource, UITableViewDelegate {
             for: indexPath) as? BasketTableViewCell else { return UITableViewCell()}
         let model = addedGoods[indexPath.row]
         cell.configure(with: model)
+        cell.deleteGoodsButton.tag = indexPath.row
         cell.delegate = self
         cell.delegateForDelete = self
         return cell
@@ -211,8 +212,21 @@ extension BasketVC: UpdateTotalDelegate {
 }
 
 extension BasketVC: DeleteGoodFromCartDelegate {
-    func deleteGoodFromCart() {
-        fetchGoodFromBasket()
-        getTotal()
+//    func deleteGoodFromCart() {
+//        fetchGoodFromBasket()
+//        getTotal()
+//    }
+    func deleteGoodFromCart(indexPath: IndexPath) {
+        print ("DELETE DELEGATION" )
+        
+        let alert = UIAlertController(title: "Delete", message: "Are sure to delete?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "YES", style: .destructive) { _ in
+            self.addedGoodsTable.dataSource?.tableView?(self.addedGoodsTable, commit: .delete, forRowAt: indexPath)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
+                                      
 }

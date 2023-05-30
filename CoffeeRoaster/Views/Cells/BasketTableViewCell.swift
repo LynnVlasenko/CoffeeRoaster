@@ -13,7 +13,7 @@ protocol UpdateTotalDelegate {
 }
 
 protocol DeleteGoodFromCartDelegate {
-    func deleteGoodFromCart()
+    func deleteGoodFromCart(indexPath: IndexPath)
 }
 
 class BasketTableViewCell: UITableViewCell {
@@ -79,8 +79,8 @@ class BasketTableViewCell: UITableViewCell {
         return label
     }()
     
-    // delete good button
-    private let deleteGoodsButton: UIButton = {
+    // delete good button //робимо змінною і не приватною, для додавання тегу в селі
+    var deleteGoodsButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "trash"), for: UIControl.State.normal)
         button.tintColor = .gray
@@ -113,39 +113,11 @@ class BasketTableViewCell: UITableViewCell {
     }
     
     // MARK: - Actions
-    //не працює ця функція, бо не показує алерт - без нього працює видалення, але не оновлення табличку
-    @objc private func didTabDeleteGoodButton() {
-//        guard let id = self.goodId else {
-//            return
-//        }
-///////////////////////////////////// It don't work for update totalLbl data and delete row in Basket table /////////////////////////////
-////        print("The good \(id) is not deleted. This function has a problem with deleting a cell and it doesn't show a notification before deleting, but it can delete an item from the database. I commented on it. You can remove by swiping left")
-//        //alert to confirm delete
-//        let sheet = UIAlertController(title: "Delete", message: "Are you sure you'd like to delete this good?", preferredStyle: .actionSheet)
-//        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//        sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-            guard let email = UserDefaults.standard.string(forKey: "email"),
-                  let id = self.goodId else {
-                print("Befor delete \(String(describing: self.goodId))")
-                return
-            }
-            DatabaseManager.shared.deleteGoodFromBacket(for: id, email: email) { deleted in
-                guard deleted else {
-                    return
-                }
-                print("doog \(id) was deleted")
-                DispatchQueue.main.async {
-                    //self.delegate?.updateTotal() //чомусь не працює - оновлює лише по відкриттю вьюшки - але в БД усе зберігається
-                    //також треба оновити табличку
-                    self.delegateForDelete?.deleteGoodFromCart()
-                    print("I'm here after deleted")
-                }
-            }
-        }
-        //let vc = BasketVC()
-        //BasketVC()
-        //delegate.present(sheet, animated: true)
-    
+    //delete good
+    @objc private func didTabDeleteGoodButton(_ sender: UIButton) {
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        delegateForDelete?.deleteGoodFromCart(indexPath: indexPath)
+    }
     
     //stepper
     @objc func valueStepperChanged() {
