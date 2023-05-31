@@ -218,9 +218,16 @@ class OrderVC: UIViewController {
             }
             DispatchQueue.main.async {
                 // Then do: Update the My Orders table
+//                let vc = OrderSuccessfulVC()
+//                vc.modalPresentationStyle = .fullScreen
+//                self?.present(vc, animated: true)
+                
                 let vc = OrderSuccessfulVC()
                 vc.modalPresentationStyle = .fullScreen
-                self?.present(vc, animated: true)
+                self?.navigationItem.hidesBackButton = true
+                self?.navigationController?.pushViewController(vc, animated: false)
+                
+                
                 
                 // updated the rating for purchased goods
                 guard let ids = self?.idsOrderedGoods else {

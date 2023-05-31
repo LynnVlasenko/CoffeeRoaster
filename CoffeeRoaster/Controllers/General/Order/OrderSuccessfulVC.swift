@@ -57,6 +57,9 @@ class OrderSuccessfulVC: UIViewController {
         view.backgroundColor = .systemBackground
         localNotificationSetting() ///////////////////////////////// It doesn't show up in my simulator /////////////////////////////
         addSubview()
+        
+        
+        navigationItem.hidesBackButton = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,12 +81,16 @@ class OrderSuccessfulVC: UIViewController {
      
     // MARK: - Action
     @objc private func didTabGoToHomeButton() {
-        DispatchQueue.main.async {
-            //show Home View
-            let vc = TabBarVC()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-        }
+        
+        guard let parent = navigationController?.viewControllers.first as? BasketVC else { return }
+        
+        navigationController?.popToRootViewController(animated: false)
+        
+        parent.tabBarController?.selectedIndex = 0
+        
+        UIView.transition(with: parent.tabBarController!.view, duration: 0.3, options: .transitionCrossDissolve, animations: {},
+                          completion: { _ in })
+        
     }
     // Local Notification
     ///////////////////////////////// It doesn't show up in my simulator /////////////////////////////

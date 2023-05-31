@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class HomeVC: UIViewController {
     // Array for goods data
@@ -53,6 +54,14 @@ class HomeVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         goodsTable.frame = view.bounds
+    }
+    
+    
+    //MARK: - viewDidAppear
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //goodsTable.isSkeletonable = true
+        //goodsTable.showSkeleton(usingColor: .concrete, transition: .crossDissolve(0.25))
     }
     
     // MARK: - Add Subview
@@ -119,6 +128,14 @@ class HomeVC: UIViewController {
     }
 }
 
+
+//MARK: - Skeleton ext
+extension HomeVC: SkeletonTableViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return HomeTableViewCell.identifier
+    }
+}
+
 // MARK: - Extension for Table
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     //apply delegates for table
@@ -160,6 +177,8 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     }
     // add cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+                
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: PopularDoodsTableViewCell.identifier,
@@ -168,7 +187,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             cell.configure(with: good)
             cell.backgroundColor = .secondarySystemBackground
             return cell
-
+            
         } else {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: HomeTableViewCell.identifier,
@@ -177,6 +196,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             cell.configure(with: good)
             return cell
         }
+        
     }
     // height for row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

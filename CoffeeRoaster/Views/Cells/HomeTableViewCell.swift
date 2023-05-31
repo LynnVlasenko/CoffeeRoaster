@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class HomeTableViewCell: UITableViewCell {
     
@@ -45,6 +46,14 @@ class HomeTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .systemBackground
+        
+        //
+        isSkeletonable = true
+        contentView.isSkeletonable = true
+        goodImage.isSkeletonable = true
+        nameLbl.isSkeletonable = true
+        costLbl.isSkeletonable = true
+        //
         
         addSubviews()
         applyConstraints()
