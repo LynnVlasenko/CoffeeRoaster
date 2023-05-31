@@ -55,6 +55,7 @@ class OrderSuccessfulVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationItem.hidesBackButton = true
         NotificationManager.shared.orderedNotification()
         addSubview()
     }
@@ -78,18 +79,16 @@ class OrderSuccessfulVC: UIViewController {
      
     // MARK: - Action
     @objc private func didTabGoToHomeButton() {
-            //show Home View
-            let vc = TabBarVC()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-//            self.tabBarController?.selectedIndex = 0
-//            self.present(vc, animated: true)
-            //self.navigationController?.tabBarController?.selectedIndex = 0
-        //let index: ()? = self.navigationController?.tabBarController?.selectedIndex = 0
         
-        //self.navigationController?.pushViewController(TabBarVC(), animated: true)
-        //HomeVC().modalPresentationStyle = .fullScreen
-        //self.present(HomeVC(), animated: true)
+        guard let parent = navigationController?.viewControllers.first as? BasketVC else { return }
         
+        navigationController?.popToRootViewController(animated: false)
+        
+        parent.tabBarController?.selectedIndex = 0
+        
+        guard let tabBar = parent.tabBarController as? TabBarVC else { return }
+        tabBar.selectedTab = 0
+        
+        UIView.transition(with: parent.tabBarController!.view, duration: 0.3, options: .transitionCrossDissolve, animations: {}, completion: { _ in })
     }
 }

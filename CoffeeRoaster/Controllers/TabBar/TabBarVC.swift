@@ -10,7 +10,7 @@ import UIKit
 class TabBarVC: UITabBarController {
     
     //MARK: - Tracker
-    private var selectedTab = 0 {
+    var selectedTab = 0 {
         didSet {
             for i in 0...3 {
                 

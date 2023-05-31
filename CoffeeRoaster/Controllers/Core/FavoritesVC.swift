@@ -76,7 +76,13 @@ class FavoritesVC: UIViewController {
     
     // MARK: - Action
     @objc private func didTabGoToHomeButton() {
-            self.tabBarController?.selectedIndex = 0
+        
+        self.tabBarController?.selectedIndex = 0
+        
+        guard let tabBar = tabBarController as? TabBarVC else { return }
+        tabBar.selectedTab = 0
+        
+        UIView.transition(with: tabBarController!.view, duration: 0.3, options: .transitionCrossDissolve, animations: {}, completion: { _ in })
     }
 }
 

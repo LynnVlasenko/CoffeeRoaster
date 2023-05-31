@@ -220,7 +220,7 @@ class OrderVC: UIViewController {
                 // Then do: Update the My Orders table
                 let vc = OrderSuccessfulVC()
                 vc.modalPresentationStyle = .fullScreen
-                self?.present(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: false)
                 
                 // updated the rating for purchased goods
                 guard let ids = self?.idsOrderedGoods else {
@@ -280,4 +280,5 @@ class OrderVC: UIViewController {
             print("idsOrderedGoods in Getting ids in order: \(self.idsOrderedGoods)")
         }
     }
+    @objc func addTime() {}
 }

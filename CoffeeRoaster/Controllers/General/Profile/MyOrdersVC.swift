@@ -77,6 +77,16 @@ class MyOrdersVC: UIViewController {
     
     // MARK: - Action
     @objc private func didTabGoToHomeButton() {
-        self.tabBarController?.selectedIndex = 0
+        
+        guard let parent = navigationController?.viewControllers.first as? ProfileVC else { return }
+        
+        navigationController?.popToRootViewController(animated: false)
+        
+        parent.tabBarController?.selectedIndex = 0
+        
+        guard let tabBar = parent.tabBarController as? TabBarVC else { return }
+        tabBar.selectedTab = 0
+        
+        UIView.transition(with: parent.tabBarController!.view, duration: 0.3, options: .transitionCrossDissolve, animations: {}, completion: { _ in })
     }
 }
