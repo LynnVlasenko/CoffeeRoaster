@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44DBF4CB2A267C9C00A71EE6 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBF4CA2A267C9C00A71EE6 /* NotificationManager.swift */; };
 		6C50DDD52A1780AA009FA93A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C50DDD42A1780AA009FA93A /* Assets.xcassets */; };
 		6C50DDE12A178172009FA93A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6C50DDE02A178172009FA93A /* FirebaseAuth */; };
 		6C50DDE32A178172009FA93A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C50DDE22A178172009FA93A /* FirebaseFirestore */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44DBF4CA2A267C9C00A71EE6 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		6C50DDC82A1780A4009FA93A /* CoffeeRoaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeRoaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C50DDD42A1780AA009FA93A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C50DDD92A1780AA009FA93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				6C50DDF52A17837E009FA93A /* DatabaseManager.swift */,
 				6C50DDF32A17837E009FA93A /* StorageManager.swift */,
 				6CABEBEA2A1DFDF100554A3C /* SettingManager.swift */,
+				44DBF4CA2A267C9C00A71EE6 /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				6C50DE1F2A17837E009FA93A /* MyOrdersVC.swift in Sources */,
 				6C50DE2A2A17837E009FA93A /* BasketTableViewCell.swift in Sources */,
 				6C50DE212A17837E009FA93A /* EditProfileVC.swift in Sources */,
+				44DBF4CB2A267C9C00A71EE6 /* NotificationManager.swift in Sources */,
 				6C50DE252A17837E009FA93A /* SignUpVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
