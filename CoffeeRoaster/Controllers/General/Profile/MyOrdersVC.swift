@@ -77,11 +77,6 @@ class MyOrdersVC: UIViewController {
     
     // MARK: - Action
     @objc private func didTabGoToHomeButton() {
-        DispatchQueue.main.async {
-            //show Home View
-            let vc = TabBarVC()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-        }
+        self.tabBarController?.selectedIndex = 0
     }
 }
