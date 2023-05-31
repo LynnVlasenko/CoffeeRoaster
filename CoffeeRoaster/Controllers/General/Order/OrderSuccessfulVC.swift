@@ -55,7 +55,7 @@ class OrderSuccessfulVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        localNotificationSetting() ///////////////////////////////// It doesn't show up in my simulator /////////////////////////////
+        NotificationManager.shared.orderedNotification()
         addSubview()
     }
     
@@ -78,30 +78,18 @@ class OrderSuccessfulVC: UIViewController {
      
     // MARK: - Action
     @objc private func didTabGoToHomeButton() {
-        DispatchQueue.main.async {
             //show Home View
             let vc = TabBarVC()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
-        }
-    }
-    // Local Notification
-    ///////////////////////////////// It doesn't show up in my simulator /////////////////////////////
-    private func localNotificationSetting() {
-        let center = UNUserNotificationCenter.current()
-        let content = UNMutableNotificationContent()
-        content.title = "Coffee Shop"
-        content.body = "Thank you for your order, it was accepted. Our manager will reach out you soon."
-        content.sound = .default
+//            self.tabBarController?.selectedIndex = 0
+//            self.present(vc, animated: true)
+            //self.navigationController?.tabBarController?.selectedIndex = 0
+        //let index: ()? = self.navigationController?.tabBarController?.selectedIndex = 0
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-        let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
-        center.add(request) { (error) in
-            if error != nil {
-                print ("Error = \(error?.localizedDescription ?? "error local notification")")
-            } else {
-                print("Push was sent")
-            }
-        }
+        //self.navigationController?.pushViewController(TabBarVC(), animated: true)
+        //HomeVC().modalPresentationStyle = .fullScreen
+        //self.present(HomeVC(), animated: true)
+        
     }
 }

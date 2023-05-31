@@ -212,12 +212,9 @@ extension BasketVC: UpdateTotalDelegate {
 }
 
 extension BasketVC: DeleteGoodFromCartDelegate {
-//    func deleteGoodFromCart() {
-//        fetchGoodFromBasket()
-//        getTotal()
-//    }
+    //delete good from Cart by button
     func deleteGoodFromCart(indexPath: IndexPath) {
-        print ("DELETE DELEGATION" )
+        print ("DELETE DELEGATION")
         
         let alert = UIAlertController(title: "Delete", message: "Are sure to delete?", preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "YES", style: .destructive) { _ in
@@ -228,5 +225,4 @@ extension BasketVC: DeleteGoodFromCartDelegate {
         alert.addAction(cancelAction)
         present(alert, animated: true)
     }
-                                      
 }

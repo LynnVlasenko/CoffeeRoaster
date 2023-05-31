@@ -12,6 +12,7 @@ protocol UpdateTotalDelegate {
     func updateTotal()
 }
 
+// delegate for Delete Good fron Cart
 protocol DeleteGoodFromCartDelegate {
     func deleteGoodFromCart(indexPath: IndexPath)
 }
@@ -61,10 +62,9 @@ class BasketTableViewCell: UITableViewCell {
     // stepper for choosing quantity of goods
     private let qtyOfGoodsStepper: UIStepper = {
         let stepper = UIStepper()
-        stepper.minimumValue = 1 //мінімальне значення для віднімання(decrementing) значення
-        stepper.maximumValue = 20 //максимальне значення для додавання(incrementing) значення
-        //вказати початкове значення з якого рахувати - відповідне до обраного уже при додаванні в корзинку - тобто значення яке на той час має лейбла(але перевести в Int)
-        stepper.stepValue = 1 //крок на який збільшується чи зменшується значення
+        stepper.minimumValue = 1
+        stepper.maximumValue = 20
+        stepper.stepValue = 1
         stepper.addTarget(self, action: #selector(valueStepperChanged), for: .touchUpInside)
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
@@ -73,7 +73,6 @@ class BasketTableViewCell: UITableViewCell {
     // label for the value of the selected quantity of the product
     private let qtyOfGoodsLbl: UILabel = {
         let label = UILabel()
-        //label.text = "0"
         label.font = UIFont.systemFont(ofSize: 18, weight: .light)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -205,6 +204,7 @@ class BasketTableViewCell: UITableViewCell {
         goodId = goodInBasket.id
         goodCost = goodInBasket.cost
         
+        //download good image
         StorageManager.shared.downloadUrlForGood(path: goodInBasket.photo) { url in
             guard let url = url else {
                 return

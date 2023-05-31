@@ -19,7 +19,7 @@ class NotificationManager {
         let content = UNMutableNotificationContent()
         
         content.title = "CoffeeRoaster"
-        content.body = "You successfully ordered!"
+        content.body = "Thank you for your order, it was accepted. Our manager will reach out you soon."
         content.sound = .default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
