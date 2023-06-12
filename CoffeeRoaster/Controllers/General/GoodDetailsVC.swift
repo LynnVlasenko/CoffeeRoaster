@@ -54,9 +54,9 @@ class GoodDetailsVC: UIViewController {
     // stepper for choosing quantity of goods
     private let qtyOfGoodsStepper: UIStepper = {
         let stepper = UIStepper()
-        stepper.minimumValue = 0 //мінімальне значення для віднімання(decrementing) значення
-        stepper.maximumValue = 20 //максимальне значення для додавання(incrementing) значення
-        stepper.stepValue = 1 //крок на який збільшується чи зменшується значення
+        stepper.minimumValue = 0
+        stepper.maximumValue = 20
+        stepper.stepValue = 1
         stepper.addTarget(self, action: #selector(valueStepperChanged), for: .touchUpInside)
         stepper.translatesAutoresizingMaskIntoConstraints = false
         return stepper
